@@ -103,7 +103,7 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
                       }
                       placeholder=" Password"
                     ></input>
-                    <a
+                    <h3
                       className="forgot-password-link"
                       onClick={() => {
                         setForm(3);
@@ -112,9 +112,9 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
                       }}
                     >
                       Forgot Password?
-                    </a>
+                    </h3>
                     <button className="login-form-button button">Login</button>
-                    <a
+                    <h3
                       className="signup-link"
                       onClick={() => {
                         setSidePanelOpen(false);
@@ -122,7 +122,7 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
                       }}
                     >
                       New to MyWays? Sign Up here
-                    </a>
+                    </h3>
                   </form>
 
                   {sidebarMessage !== "" && (
