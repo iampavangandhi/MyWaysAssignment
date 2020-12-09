@@ -19,7 +19,7 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
     const { email, password } = input;
 
     axios
-      .post(process.env.REACT_APP_URL + "signin", { email, password })
+      .post(process.env.REACT_APP_BASE_URL + "signin", { email, password })
       .then((res) => {
         if (res.data.code === 200) {
           localStorage.setItem("MYWAYS_JWT", res.data.token);

@@ -20,7 +20,7 @@ function Modal1({ form, setForm, modalOpen, setModalOpen }) {
     const { firstName, lastName, email, password } = input;
 
     axios
-      .post(process.env.REACT_APP_URL + "signup", {
+      .post(process.env.REACT_APP_BASE_URL + "signup", {
         firstName,
         lastName,
         email,
@@ -43,7 +43,7 @@ function Modal1({ form, setForm, modalOpen, setModalOpen }) {
     e.preventDefault();
 
     axios
-      .post(process.env.REACT_APP_URL + "verify", {
+      .post(process.env.REACT_APP_BASE_URL + "verify", {
         enteredOTP: OTP,
       })
       .then((res) => {
@@ -71,7 +71,7 @@ function Modal1({ form, setForm, modalOpen, setModalOpen }) {
     const { email } = input;
 
     axios
-      .post(process.env.REACT_APP_URL + "reset", {
+      .post(process.env.REACT_APP_BASE_URL + "reset", {
         email,
       })
       .then((res) => {
@@ -91,7 +91,7 @@ function Modal1({ form, setForm, modalOpen, setModalOpen }) {
     const { password } = input;
 
     axios
-      .post(process.env.REACT_APP_URL + "reset/verify", {
+      .post(process.env.REACT_APP_BASE_URL + "reset/verify", {
         enteredOTP: OTP,
         newPassword: password,
       })
