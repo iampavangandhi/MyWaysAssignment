@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./App.css";
 
+import Wrapper from "./components/Wrapper";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import SidePanel from "./components/SidePanel";
@@ -14,7 +15,7 @@ function App() {
   const [sidePanelOpen, setSidePanelOpen] = useState(false);
 
   return (
-    <div id="App" className="App">
+    <Wrapper>
       <Navbar setModalOpen={setModalOpen} setSidePanelOpen={setSidePanelOpen} />
 
       {(modalOpen || sidePanelOpen) && (
@@ -39,7 +40,7 @@ function App() {
         sidePanelOpen={sidePanelOpen}
         setSidePanelOpen={setSidePanelOpen}
       />
-    </div>
+    </Wrapper>
   );
 }
 

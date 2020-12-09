@@ -15,6 +15,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// CORS Middleware
 app.use(cors());
 
 // DB Connection
@@ -30,7 +31,6 @@ mongoose
   });
 
 // Routes
-app.use("/", require("./routes/index"));
 app.use("/reset", require("./routes/reset"));
 app.use("/signin", require("./routes/signin"));
 app.use("/signup", require("./routes/signup"));

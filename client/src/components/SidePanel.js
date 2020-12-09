@@ -48,10 +48,9 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
       {sidePanelOpen && (
         <div className="side-panel">
           <div className="side-panel-content">
-            {isSignedIn === null ||
-              (isSignedIn === "" && (
-                <h2 className="side-panel-title">Login</h2>
-              ))}
+            {(isSignedIn === null || isSignedIn === "") && (
+              <h2 className="side-panel-title">Login</h2>
+            )}
             {isSignedIn && <h2 className="side-panel-title">Logout</h2>}
             <button
               onClick={() => {
@@ -73,63 +72,62 @@ function SidePanel({ setForm, setModalOpen, sidePanelOpen, setSidePanelOpen }) {
                 </button>
               </div>
             )}
-            {isSignedIn === null ||
-              (isSignedIn === "" && (
-                <div className="login-form">
-                  <h2 className="login-form-title">Student</h2>
-                  <div className="login-form-bar"></div>
-                  <form onSubmit={handleSubmit} id="login-form">
-                    <input
-                      type="text"
-                      required
-                      value={input.email}
-                      name="email"
-                      onChange={(e) =>
-                        setInput((prevState) => {
-                          return { ...prevState, email: e.target.value };
-                        })
-                      }
-                      placeholder=" Email"
-                    ></input>
-                    <input
-                      type="password"
-                      required
-                      value={input.password}
-                      name="password"
-                      onChange={(e) =>
-                        setInput((prevState) => {
-                          return { ...prevState, password: e.target.value };
-                        })
-                      }
-                      placeholder=" Password"
-                    ></input>
-                    <h3
-                      className="forgot-password-link"
-                      onClick={() => {
-                        setForm(3);
-                        setModalOpen(true);
-                        setSidePanelOpen(false);
-                      }}
-                    >
-                      Forgot Password?
-                    </h3>
-                    <button className="login-form-button button">Login</button>
-                    <h3
-                      className="signup-link"
-                      onClick={() => {
-                        setSidePanelOpen(false);
-                        setModalOpen(true);
-                      }}
-                    >
-                      New to MyWays? Sign Up here
-                    </h3>
-                  </form>
+            {(isSignedIn === null || isSignedIn === "") && (
+              <div className="login-form">
+                <h2 className="login-form-title">Student</h2>
+                <div className="login-form-bar"></div>
+                <form onSubmit={handleSubmit} id="login-form">
+                  <input
+                    type="text"
+                    required
+                    value={input.email}
+                    name="email"
+                    onChange={(e) =>
+                      setInput((prevState) => {
+                        return { ...prevState, email: e.target.value };
+                      })
+                    }
+                    placeholder=" Email"
+                  ></input>
+                  <input
+                    type="password"
+                    required
+                    value={input.password}
+                    name="password"
+                    onChange={(e) =>
+                      setInput((prevState) => {
+                        return { ...prevState, password: e.target.value };
+                      })
+                    }
+                    placeholder=" Password"
+                  ></input>
+                  <h3
+                    className="forgot-password-link"
+                    onClick={() => {
+                      setForm(3);
+                      setModalOpen(true);
+                      setSidePanelOpen(false);
+                    }}
+                  >
+                    Forgot Password?
+                  </h3>
+                  <button className="login-form-button button">Login</button>
+                  <h3
+                    className="signup-link"
+                    onClick={() => {
+                      setSidePanelOpen(false);
+                      setModalOpen(true);
+                    }}
+                  >
+                    New to MyWays? Sign Up here
+                  </h3>
+                </form>
 
-                  {sidebarMessage !== "" && (
-                    <h4 className="login-form-message">{sidebarMessage}</h4>
-                  )}
-                </div>
-              ))}
+                {sidebarMessage !== "" && (
+                  <h4 className="login-form-message">{sidebarMessage}</h4>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
