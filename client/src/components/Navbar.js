@@ -2,15 +2,7 @@ import React from "react";
 
 import logo from "../assets/myways.png";
 
-function Navbar() {
-  const openSidebar = (e) => {
-    e.preventDefault();
-    document.getElementById("App").classList.add("blur");
-    document.getElementById("sidebar").classList.add("active");
-    document.getElementById("login-form").style.opacity = 1;
-    document.getElementById("reset-form").style.opacity = 1;
-  };
-
+function Navbar({ SetModalOpen, setSidePanelOpen }) {
   return (
     <div className="navbar">
       <div className="logo">
@@ -23,13 +15,17 @@ function Navbar() {
         <div className="navbar__menu-items">Pricing</div>
         <div className="navbar__menu-items">About Us</div>
         <div
+          onClick={() => SetModalOpen(true)}
           id="signup-button-navbar"
           className="navbar__menu-items highlight-text"
         >
           Sign Up
         </div>
       </div>
-      <button onClick={openSidebar} className="navbar__menu-items login-button">
+      <button
+        onClick={() => setSidePanelOpen(true)}
+        className="navbar__menu-items login-button"
+      >
         Login
       </button>
     </div>

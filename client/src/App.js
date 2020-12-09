@@ -1,25 +1,44 @@
+import React, { useState } from "react";
+
 import "./App.css";
 
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-import SideBar from "./components/SideBar";
+import SidePanel from "./components/SidePanel";
 import Modal from "./components/Modal";
+import Overlay from "./components/Overlay";
 
 function App() {
-  document.getElementById("App").addEventListener("click", () => {
-    document.getElementById("App").classList.remove("blur");
-    document.getElementById("sidebar").classList.remove("active");
-    document.getElementById("modal").classList.remove("open");
-  });
+  const [form, setForm] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [sidePanelOpen, setSidePanelOpen] = useState(false);
 
   return (
     <div id="App" className="App">
-      <Navbar />
-      <HeroSection />
-      <div className="modal-wrapper">
-        <Modal />
-      </div>
-      <SideBar />
+      <Navbar setModalOpen={setModalOpen} setSidePanelOpen={setSidePanelOpen} />
+
+      {(modalOpen || sidePanelOpen) && (
+        <Overlay
+          setModalOpen={setModalOpen}
+          setSidePanelOpen={setSidePanelOpen}
+        />
+      )}
+
+      <HeroSection setModalOpen={setModalOpen} />
+
+      <Modal
+        form={form}
+        setForm={setForm}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
+
+      <SidePanel
+        setForm={setForm}
+        setModalOpen={setModalOpen}
+        sidePanelOpen={sidePanelOpen}
+        setSidePanelOpen={setSidePanelOpen}
+      />
     </div>
   );
 }

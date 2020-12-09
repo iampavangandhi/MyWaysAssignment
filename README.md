@@ -15,7 +15,7 @@
 
 ```javascript
 // Frontend
-REACT_APP_URL=XXXX (localhost: "http://localhost:4000/")
+REACT_APP_URL=XXXX (For Development: "http://localhost:4000/")
 
 // Backend
 DATABASE_URI=XXXX
