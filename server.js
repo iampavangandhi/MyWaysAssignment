@@ -4,6 +4,7 @@ require("dotenv").config({ path: "./config/.env" });
 // Includes
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const cors = require("cors");
 
 let databaseUri = process.env.DATABASE_URI;
@@ -34,6 +35,15 @@ app.use("/reset", require("./routes/reset"));
 app.use("/signin", require("./routes/signin"));
 app.use("/signup", require("./routes/signup"));
 app.use("/verify", require("./routes/verify"));
+
+// Production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html")); // relative path
+  });
+}
 
 // PORT
 const port = process.env.PORT || 4000;
